@@ -2,6 +2,15 @@
 
 ### Usage
 
+Adding an option to directly set the comment path in case that your comment path and write path are not the same.
+
+#### Example
+```
+stream.pipe(sourcemaps.write(wrtie_path, {
+  commenthPath: comment_path
+});
+```
+
 #### Write inline source maps
 Inline source maps are embedded in the source file.
 
