@@ -143,6 +143,10 @@ module.exports.write = function write(destPath, options) {
     options.includeContent = true;
   if (options.addComment === undefined)
     options.addComment = true;
+  // add an option to directly change the comment path
+  if (options.commentPath === undefined) {
+    options.commentPath = destPath;
+  }
 
   function sourceMapWrite(file, encoding, callback) {
     /*jshint validthis:true */
@@ -222,7 +226,7 @@ module.exports.write = function write(destPath, options) {
       });
       this.push(sourceMapFile);
 
-      comment = commentFormatter(unixStylePath(path.join(path.relative(path.dirname(file.path), file.base), destPath, file.relative) + '.map'));
+      comment = commentFormatter(unixStylePath(path.join(path.relative(path.dirname(file.path), file.base), options.commentPath, file.relative) + '.map'));
 
       if (options.sourceMappingURLPrefix) {
         if (typeof options.sourceMappingURLPrefix === 'function') {
