@@ -7,7 +7,7 @@ Adding an option to directly set the comment path in case that your comment path
 #### Example
 ```
 stream.pipe(sourcemaps.write(wrtie_path, {
-  commenthPath: comment_path
+  commentPath: comment_path
 });
 ```
 
